@@ -54,12 +54,10 @@ public class CustomerController {
 		customer.add(linkTo(methodOn(CustomerController.class)
 				.removeCustomer(customer.getCustomerId()))
 		   		.withRel("delete"));
-
-		customer.getOrders().forEach(order -> {
-			customer.add(linkTo(methodOn(OrderController.class)
+		
+		customer.add(linkTo(methodOn(OrderController.class)
 	   				.getCustomerOrders(customer.getCustomerId()))
 					.withRel("orders"));
-		});
 		
 		return ResponseEntity.ok(customer);
 	}

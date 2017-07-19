@@ -67,7 +67,7 @@ public class OrderController {
 		   		.withRel("delete"));
 
 		order.add(linkTo(methodOn(OrderController.class)
-	   			.getOrderProducts(order.getOrderId()))
+	   			.getProductsFromOrder(order.getOrderId()))
 				.withRel("products"));
 		
 		return order;
@@ -95,7 +95,7 @@ public class OrderController {
 			   		.withRel("delete"));
 
 			order.add(linkTo(methodOn(OrderController.class)
-		   			.getOrderProducts(order.getOrderId()))
+		   			.getProductsFromOrder(order.getOrderId()))
 					.withRel("products"));							
 		});
 		
@@ -104,7 +104,7 @@ public class OrderController {
 
 		
 	@RequestMapping(value = "/api/order/{orderId}/products", method = RequestMethod.GET)
-	public ResponseEntity<Set<Product>> getOrderProducts(@PathVariable("orderId") Long orderId) {
+	public ResponseEntity<Set<Product>> getProductsFromOrder(@PathVariable("orderId") Long orderId) {
 		
 		Set<Product> products = orderRepository.findOne(orderId).getProducts();
 		
@@ -123,7 +123,7 @@ public class OrderController {
 	}
 
 	
-	@RequestMapping(value = "/api/order/{orderId}/product/{productId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/order/{orderId}/product/{productId}", method = RequestMethod.DELETE)
 	public ResponseEntity<CustomerOrder> deleteProductFromOrder(@PathVariable("orderId") Long orderId,
 															    @PathVariable("productId") Long productId) {
 		

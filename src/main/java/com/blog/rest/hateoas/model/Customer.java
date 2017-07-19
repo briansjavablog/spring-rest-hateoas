@@ -68,5 +68,4 @@ public class Customer extends ResourceSupport {
 		}
 		orders.add(order);
 	}
-
 }

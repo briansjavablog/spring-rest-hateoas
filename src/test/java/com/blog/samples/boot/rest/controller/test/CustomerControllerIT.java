@@ -130,8 +130,8 @@ public class CustomerControllerIT {
 		assertProduct(products, "prod 2 name", "prod 2 decription", 23.99);		
 		
 		/* assert hypermedia links */
-		assertHref(products, "self", "http://localhost:8080/api/product/3");
-		assertHref(products, "delete-from-order", "http://localhost:8080/api/order/2/product/3");			
+		assertHref(products, "self", "http://localhost:8080/api/product/1");
+		assertHref(products, "delete-from-order", "http://localhost:8080/api/order/1/product/1");			
 	}
 	
 	
